@@ -53,6 +53,7 @@ createUser();
 
 // Making your own promise, use new keyword
 
+/*
 function wait3seconds(){
     return new Promise((resolve, reject) => {
         //resolve()  // if we do this the .then code runs
@@ -69,11 +70,47 @@ wait3seconds().then(() => console.log("All done"))  // To do this, we have to ca
 
 console.log("This runs first, Still waiting for pending promise") // this runs first while it is waiting for pending promise to a value
 
+*/
 // to make color changes each second
-const h1 = document.querySelector('h1');
-setTimeout(function(){
-    h1.style.color = 'red'
-}, 1000)
+// const small = document.querySelector('small');
+// setTimeout(function(){   // after one second this turns html file content into red
+//     small.style.color = 'red'
+// }, 1000)
+
+// to get different color after that one second, you have nest small inside setTimeout function
+// const small = document.querySelector('small');
+// setTimeout(function(){   // after one second this turns html file content into red
+//     small.style.color = 'red'
+//     setTimeout(() => {
+//         small.style.color = 'orange'  // this turns into orange after red
+//         setTimeout(() => {
+//             small.style.color = 'green'  // this turns into green after orange
+//         }, 1000)
+//     }, 1000)
+// }, 1000)
+
+
+// do this in promise
+const small = document.querySelector('small');
+function changeColor(element, color){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            element.style.color = color;
+            resolve()
+        }, 1000)
+    })
+}
+// changeColor(small, 'teal')  // no the .then function used here
+// now use the .then function becasue it will give you the way to know if the code after the last line executes
+// underneath is Promise chaining
+changeColor(small, 'red') 
+    .then(() =>  changeColor(small, 'orange'))
+    .then(() =>  changeColor(small, 'yellow'))
+    .then(() =>  changeColor(small, 'green'))
+    .then(() =>  changeColor(small, 'blue'))
+    .then(() =>  changeColor(small, 'indigo'))
+    .then(() =>  changeColor(small, 'violet'))
+   
 
 
 
