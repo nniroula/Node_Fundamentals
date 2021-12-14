@@ -39,6 +39,7 @@ getUsers();
 */
 
 // axios.post
+/*
 async function createUser(){
     // const res = await axios.post('https://reqres.in/api/users');  // No data is passed yet
     // to send data, follow instructions of that api for data
@@ -48,3 +49,31 @@ async function createUser(){
     
 }
 createUser();
+*/
+
+// Making your own promise, use new keyword
+
+function wait3seconds(){
+    return new Promise((resolve, reject) => {
+        //resolve()  // if we do this the .then code runs
+        //reject()  // this needs .catch() function
+        // make async going on
+        // setTimeout(resolve, 3000)  //this makes promise wait 3 seconds and then runs .then function
+        setTimeout(reject, 3000)  //this makes promise wait 3 seconds and then runs .catch() function
+
+    })
+
+}
+wait3seconds().then(() => console.log("All done"))  // To do this, we have to call promise in our functioin body
+                .catch(() => console.log("ERROR"))
+
+console.log("This runs first, Still waiting for pending promise") // this runs first while it is waiting for pending promise to a value
+
+// to make color changes each second
+const h1 = document.querySelector('h1');
+setTimeout(function(){
+    h1.style.color = 'red'
+}, 1000)
+
+
+
