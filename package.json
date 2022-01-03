@@ -1,0 +1,19 @@
+{
+  "name": "node-fundamentals",
+  "version": "1.0.0",
+  "description": "learning nodejs and npm",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nniroula/Node_Fundamentals.git"
+  },
+  "author": "nabin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nniroula/Node_Fundamentals/issues"
+  },
+  "homepage": "https://github.com/nniroula/Node_Fundamentals#readme"
+}
